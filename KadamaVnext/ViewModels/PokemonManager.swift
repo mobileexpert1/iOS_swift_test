@@ -10,13 +10,18 @@ import Foundation
 class PokemonManager : NSObject{
     
     var pokemons : ObserverValue<[Pokemon]> = ObserverValue([])
+    private var pokemonsStorage : ObserverValue<[Pokemon]> = ObserverValue([])
     var canLoadNext = true
     var persistantStore = PersistanceStore()
     // Fetch all pokemon list
     func fetchPokemontsList() {
         
-        loadLocalPokemons()
-        return;
+        let localRecords = persistantStore.fetchAllPokemons()
+        if ((localRecords.count) > 0) && (pokemonsStorage.value.count < localRecords.count) {
+            loadLocalPokemons()
+            return;
+        }
+        
         
         if !canLoadNext {
             return
@@ -27,6 +32,7 @@ class PokemonManager : NSObject{
                 self.canLoadNext = ((pokemon?.count ?? 0) > self.pokemons.value.count)
                 self.savePokemonsToLocal(pokemons: pokemon?.results ?? [])
                 self.pokemons.value.append(contentsOf: pokemon?.results ?? [])
+                self.pokemonsStorage.value.append(contentsOf: pokemon?.results ?? [])
             }
         }
         
@@ -44,10 +50,11 @@ class PokemonManager : NSObject{
         var pokemonsList = [Pokemon]()
         let allPokemons = self.persistantStore.fetchAllPokemons()
         for detail in allPokemons {
-            let pokemon = Pokemon(name: detail.name , url: detail.url, abilities: nil, sprites: nil, id: Int(detail.id ?? "0") ,image: detail.image)
+            let pokemon = Pokemon(name: detail.name , url: detail.url, abilities: nil, sprites: nil, id: Int(detail.id ?? "0") ,image: detail.image,abilitiesString: detail.abilities)
             pokemonsList.append(pokemon)
         }
         self.pokemons.value = pokemonsList
+        self.pokemonsStorage.value = pokemonsList
     }
     
     
@@ -70,7 +77,6 @@ class PokemonManager : NSObject{
         PokemonStore.shared.getPokemonDetails(id: pokemonID) { [weak self] (success, pokemon:Pokemon?) in
             if success {
                 guard let self = self , let pokemon = pokemon else {return}
-
                 self.persistantStore.savePokemon(pokemon: pokemon)
             }
         }
@@ -79,6 +85,23 @@ class PokemonManager : NSObject{
     func parsePokemonURL(url:String) -> Substring? {
         let splits = url.split(separator: "/")
         return splits.last
+    }
+    
+    
+    // Search pokemons locally
+    func searchPokemon(string:String){
+        
+        if (string.isEmpty){
+            self.pokemons.value = self.pokemonsStorage.value
+            return
+        }
+        
+        let filtered = self.pokemonsStorage.value.filter { pokemon in
+            let nameMatch = (pokemon.name?.lowercased().contains(string.lowercased())) ?? false
+            let abilitiesMatch = (pokemon.abilitiesString?.lowercased().contains(string.lowercased())) ?? false
+            return ( nameMatch || abilitiesMatch)
+        }
+        self.pokemons.value = filtered
     }
     
 }

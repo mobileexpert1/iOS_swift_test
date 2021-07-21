@@ -27,6 +27,10 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
             return
         }
         thumbnailImageView.loadImageUsingUrlString(image)
+        guard let abilities = item?.abilitiesString else {
+            return
+        }
+        abilitiesLabel.text = abilities
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -59,11 +63,23 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         return label
     }()
     
+    let abilitiesLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.text = ""
+        label.numberOfLines = 3
+        return label
+    }()
+    
     func setupViews(){
         addSubview(thumbnailImageView)
         addSubview(titleLabel)
+        addSubview(abilitiesLabel)
         thumbnailImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, topConstant: 10, leftConstant: 10, bottomConstant: 10, widthConstant: 150, heightConstant: 150)
         titleLabel.anchor(thumbnailImageView.topAnchor, left: thumbnailImageView.rightAnchor,right: self.rightAnchor, topConstant: 10, leftConstant: 10, rightConstant: 10)
+        abilitiesLabel.anchor(titleLabel.bottomAnchor,left: titleLabel.leftAnchor,right: self.rightAnchor, topConstant: 10, rightConstant: 10)
     }
     
 }

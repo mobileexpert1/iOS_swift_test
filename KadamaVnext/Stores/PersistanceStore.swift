@@ -64,4 +64,216 @@ public class PersistanceStore {
     public init() {
         
     }
-   
+    
+    
+    // MARK: - Core Data Saving support
+    public func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+                
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    public func updateLabelOfExistingNumber(number: Int64, label: String) {
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
+        fetchedRequest.fetchLimit = 1
+        
+        do {
+            
+            let results = try context.fetch(fetchedRequest)
+            if results.count != 0 {
+                results[0].setValue(label, forKey: "label")
+            }
+        } catch let error {
+            print("Unable to update label in coreData, Error: \(error.localizedDescription)")
+        }
+        
+        do {
+            try context.save()
+        } catch let error {
+            print("Saving CoreData Failed, Error: \(error.localizedDescription)")
+        }
+    }
+    
+
+    
+     func savePokemon(pokemon:Pokemon) {
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "PokemonDetail", in: context) else { return }
+        
+        let contact = NSManagedObject(entity: entity, insertInto: context)
+        contact.setValue(Date(), forKey: "entryUpdated")
+        contact.setValue(pokemon.name, forKey: "name")
+       
+        contact.setValue(pokemon.sprites?.other?.officialArtwork?.frontDefault, forKey: "image")
+        contact.setValue(pokemon.url, forKey: "url")
+        contact.setValue(nil, forKey: "abilities")
+        let string = pokemon.abilities?.map({$0.ability.name.capitalized}).joined(separator: ", ")
+        contact.setValue(string, forKey: "abilities")
+        if let id = parsePokemonURL(url: pokemon.url ?? "") {
+        contact.setValue(id, forKey: "id")
+        }
+        else if let id = pokemon.id {
+            contact.setValue("\(id)", forKey: "id")
+        }
+        do {
+            try context.save()
+        } catch let error {
+            print("Could not save contacts into CoreData, Error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    func parsePokemonURL(url:String) -> Substring? {
+        let splits = url.split(separator: "/")
+        return splits.last
+    }
+    
+    
+    public func removeAllContacts() {
+        let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
+        do {
+            let result = try context.fetch(request)
+            let contacts = result as [NSManagedObject]
+            
+            for contact in contacts {
+                context.delete(contact)
+            }
+            
+            do { try context.save() }
+            catch let error {
+                print("Unable to save after deleting, Error: \(error.localizedDescription)")
+            }
+        } catch let error {
+            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    public func isNewContactAdded(name: String, phoneNumber: String) -> Bool {
+        var newContact: Bool = false
+        
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        
+        fetchedRequest.predicate  = NSPredicate(format: "name == %@", name)
+        fetchedRequest.predicate  = NSPredicate(format: "phoneNumber == %@", phoneNumber)
+        fetchedRequest.fetchLimit = 1
+        
+        do {
+            let count = try context.count(for: fetchedRequest)
+            if count == 0 {
+                // Not exists, new contact added
+                newContact = true
+            } else {
+                // exists
+                newContact = false
+            }
+        } catch let error {
+            print("Unable to compare number in coreData, Error: \(error.localizedDescription)")
+        }
+        return newContact
+    }
+}
+
+extension PersistanceStore {
+    
+    
+    
+    public func fetchAllPokemons() -> [PokemonDetail] {
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        do {
+            let results = try context.fetch(fetchedRequest)
+            return results
+        } catch let error {
+            print("Unable to update label in coreData, Error: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    
+    public func fetchOriginalContact(number: String) -> PokemonDetail? {
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
+       // fetchedRequest.fetchLimit = 1
+        
+        do {
+            
+            let results = try context.fetch(fetchedRequest)
+            if results.count != 0 {
+                //  results[0].setValue(label, forKey: "label")
+                for data in results {
+                  //  print(" Name : ",data.label as Any , "Number : ",data.number  as Any, "creationDate : ",data.creationDate as Any)
+                }
+                return results[0]
+            }
+        } catch let error {
+            print("Unable to update label in coreData, Error: \(error.localizedDescription)")
+            return nil
+        }
+        return nil
+    }
+    
+    
+    public func doesPokemonExist(id: String) -> Bool {
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        fetchedRequest.predicate = NSPredicate(format: "id == %@", id)
+        do {
+            let results = try context.fetch(fetchedRequest)
+            if results.count > 0 {
+                let pokemon = results[0]
+                return (pokemon.image != nil)
+            }
+            return results.count > 0
+        } catch let error {
+            print("Unable to update label in coreData, Error: \(error.localizedDescription)")
+            return true
+        }
+    }
+    
+    public func removeOriginalContact(with number:String) {
+        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
+        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
+        do {
+            let result = try context.fetch(fetchedRequest)
+            let contacts = result as [NSManagedObject]
+            
+            for contact in contacts {
+                context.delete(contact)
+            }
+            do { try context.save() }
+            catch let error {
+                print("Unable to save after deleting, Error: \(error.localizedDescription)")
+            }
+        } catch let error {
+            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
+        }
+    }
+    
+    public func removeAllPokemonDetail() {
+        let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
+        do {
+            let result = try context.fetch(request)
+            let contacts = result as [NSManagedObject]
+            
+            for contact in contacts {
+                context.delete(contact)
+            }
+            
+            do { try context.save() }
+            catch let error {
+                print("Unable to save after deleting, Error: \(error.localizedDescription)")
+            }
+        } catch let error {
+            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
+        }
+    }
+    
+}

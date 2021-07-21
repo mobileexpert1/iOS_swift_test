@@ -20,6 +20,7 @@ struct Pokemon: Codable {
     let sprites: Sprites?
     let id: Int?
     let image : String?
+    let abilitiesString : String?
 
     enum CodingKeys: String, CodingKey {
         case abilities
@@ -27,6 +28,7 @@ struct Pokemon: Codable {
         case sprites
         case name, url
         case image
+        case abilitiesString
     }
 }
 

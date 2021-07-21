@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController {
-
+    
     let cellId = "id"
     var viewModel : PokemonManager?
     var items = [U]() {
@@ -50,7 +50,7 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         }
         return cell
     }
-
+    
     func cellForRowAt(indexPath: IndexPath,cell:BaseTableViewCell<U>) {
         
     }
