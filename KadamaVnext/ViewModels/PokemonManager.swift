@@ -11,9 +11,13 @@ class PokemonManager : NSObject{
     
     var pokemons : ObserverValue<[Pokemon]> = ObserverValue([])
     var canLoadNext = true
-    
+    var persistantStore = PersistanceStore()
     // Fetch all pokemon list
     func fetchPokemontsList() {
+        
+        loadLocalPokemons()
+        return;
+        
         if !canLoadNext {
             return
         }
@@ -21,20 +25,53 @@ class PokemonManager : NSObject{
             if success {
                 guard let self = self else {return}
                 self.canLoadNext = ((pokemon?.count ?? 0) > self.pokemons.value.count)
+                self.savePokemonsToLocal(pokemons: pokemon?.results ?? [])
                 self.pokemons.value.append(contentsOf: pokemon?.results ?? [])
             }
         }
         
     }
     
+    func savePokemonsToLocal(pokemons:[Pokemon]){
+        for pokemon in pokemons {
+            self.persistantStore.savePokemon(pokemon: pokemon)
+        }
+        let test = self.persistantStore.fetchAllPokemons()
+        print(test)
+    }
+    
+    func loadLocalPokemons(){
+        var pokemonsList = [Pokemon]()
+        let allPokemons = self.persistantStore.fetchAllPokemons()
+        for detail in allPokemons {
+            let pokemon = Pokemon(name: detail.name , url: detail.url, abilities: nil, sprites: nil, id: Int(detail.id ?? "0") ,image: detail.image)
+            pokemonsList.append(pokemon)
+        }
+        self.pokemons.value = pokemonsList
+    }
+    
+    
     // Fetch pokemon details
-    func fetchPokemontsDetails(url:String) {
-        return;
-        guard let id = parsePokemonURL(url: url) else {return}
-        PokemonStore.shared.getPokemonDetails(id: String(id)) { [weak self] (success, pokemon:PokemonResponse?) in
+    func fetchPokemontsDetails(pokemon:Pokemon) {
+        
+        var pokemonID = ""
+        if let id = parsePokemonURL(url: pokemon.url ?? "") {
+            pokemonID = String(id)
+        }
+        else if let id = pokemon.id {
+            pokemonID = "\(id)"
+        }
+        print(pokemonID)
+        
+        if (persistantStore.doesPokemonExist(id:pokemonID)){
+            print("exists")
+            return;
+        }
+        PokemonStore.shared.getPokemonDetails(id: pokemonID) { [weak self] (success, pokemon:Pokemon?) in
             if success {
-                guard let self = self else {return}
-               
+                guard let self = self , let pokemon = pokemon else {return}
+
+                self.persistantStore.savePokemon(pokemon: pokemon)
             }
         }
     }
@@ -42,6 +79,6 @@ class PokemonManager : NSObject{
     func parsePokemonURL(url:String) -> Substring? {
         let splits = url.split(separator: "/")
         return splits.last
-        
     }
+    
 }

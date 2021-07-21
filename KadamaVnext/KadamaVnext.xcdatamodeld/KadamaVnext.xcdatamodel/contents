@@ -2,12 +2,18 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PokemonDetail" representedClassName="PokemonDetail" syncable="YES" codeGenerationType="class">
         <attribute name="abilities" optional="YES" attributeType="String"/>
+        <attribute name="entryUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="PokemonDetail" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="PokemonDetail" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

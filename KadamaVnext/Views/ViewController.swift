@@ -12,12 +12,10 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
     lazy var searchBar = UISearchBar(frame: .zero)
     private let searchController = UISearchController(searchResultsController: nil)
    // var pokemonViewModel = PokemonManager()
-    
     override func viewDidLoad() {
         viewModel = PokemonManager()
-        super.viewDidLoad()
-       
         bindViewModel()
+        super.viewDidLoad()
         self.view.backgroundColor = .white
         //navigationItem.titleView = searchBar
         self.navigationItem.searchController = searchController

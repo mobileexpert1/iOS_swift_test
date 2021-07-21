@@ -20,9 +20,13 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
     
     func loadData(){
         guard let viewModel = pokemonViewModel else {return}
-        viewModel.fetchPokemontsDetails(url: item?.url ?? "")
+        viewModel.fetchPokemontsDetails(pokemon: item )
         titleLabel.text = item?.name?.capitalized
-        thumbnailImageView.loadImageUsingUrlString("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png")
+        guard let image = item?.image else {
+            thumbnailImageView.image = nil
+            return
+        }
+        thumbnailImageView.loadImageUsingUrlString(image)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -47,6 +51,7 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.text = "Pokemon"
