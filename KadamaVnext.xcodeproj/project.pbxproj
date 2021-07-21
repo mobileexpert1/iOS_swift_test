@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25B26A7F42200F80DA9 /* AppDelegate.swift */; };
+		754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */; };
+		754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25F26A7F42200F80DA9 /* ViewController.swift */; };
+		754BB26326A7F42200F80DA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754BB26126A7F42200F80DA9 /* Main.storyboard */; };
+		754BB26626A7F42200F80DA9 /* KadamaVnext.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 754BB26426A7F42200F80DA9 /* KadamaVnext.xcdatamodeld */; };
+		754BB26826A7F42700F80DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754BB26726A7F42700F80DA9 /* Assets.xcassets */; };
+		754BB26B26A7F42700F80DA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754BB26926A7F42700F80DA9 /* LaunchScreen.storyboard */; };
+		754BB27626A7F42800F80DA9 /* KadamaVnextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB27526A7F42800F80DA9 /* KadamaVnextTests.swift */; };
+		754BB28126A7F42800F80DA9 /* KadamaVnextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB28026A7F42800F80DA9 /* KadamaVnextUITests.swift */; };
+		754BB29326A7F7BB00F80DA9 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29226A7F7BB00F80DA9 /* ServiceManager.swift */; };
+		754BB29626A7F80400F80DA9 /* PokemonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29526A7F80400F80DA9 /* PokemonStore.swift */; };
+		754BB29826A7F83600F80DA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29726A7F83600F80DA9 /* Constants.swift */; };
+		754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29926A7FAF900F80DA9 /* Extensions.swift */; };
+		754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29B26A7FE5300F80DA9 /* ObserverValue.swift */; };
+		754BB29E26A7FED400F80DA9 /* PokemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29D26A7FED400F80DA9 /* PokemonManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		754BB27226A7F42800F80DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754BB25026A7F42200F80DA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BB25726A7F42200F80DA9;
+			remoteInfo = KadamaVnext;
+		};
+		754BB27D26A7F42800F80DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754BB25026A7F42200F80DA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BB25726A7F42200F80DA9;
+			remoteInfo = KadamaVnext;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		754BB25826A7F42200F80DA9 /* KadamaVnext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KadamaVnext.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		754BB25B26A7F42200F80DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		754BB25F26A7F42200F80DA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		754BB26226A7F42200F80DA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		754BB26526A7F42200F80DA9 /* KadamaVnext.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KadamaVnext.xcdatamodel; sourceTree = "<group>"; };
+		754BB26726A7F42700F80DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		754BB26A26A7F42700F80DA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		754BB26C26A7F42700F80DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754BB27126A7F42800F80DA9 /* KadamaVnextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KadamaVnextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		754BB27526A7F42800F80DA9 /* KadamaVnextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KadamaVnextTests.swift; sourceTree = "<group>"; };
+		754BB27726A7F42800F80DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754BB27C26A7F42800F80DA9 /* KadamaVnextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KadamaVnextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		754BB28026A7F42800F80DA9 /* KadamaVnextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KadamaVnextUITests.swift; sourceTree = "<group>"; };
+		754BB28226A7F42800F80DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754BB29226A7F7BB00F80DA9 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		754BB29526A7F80400F80DA9 /* PokemonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStore.swift; sourceTree = "<group>"; };
+		754BB29726A7F83600F80DA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		754BB29926A7FAF900F80DA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		754BB29B26A7FE5300F80DA9 /* ObserverValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverValue.swift; sourceTree = "<group>"; };
+		754BB29D26A7FED400F80DA9 /* PokemonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		754BB25526A7F42200F80DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB26E26A7F42800F80DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB27926A7F42800F80DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		754BB24F26A7F42200F80DA9 = {
+			isa = PBXGroup;
+			children = (
+				754BB25A26A7F42200F80DA9 /* KadamaVnext */,
+				754BB27426A7F42800F80DA9 /* KadamaVnextTests */,
+				754BB27F26A7F42800F80DA9 /* KadamaVnextUITests */,
+				754BB25926A7F42200F80DA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		754BB25926A7F42200F80DA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				754BB25826A7F42200F80DA9 /* KadamaVnext.app */,
+				754BB27126A7F42800F80DA9 /* KadamaVnextTests.xctest */,
+				754BB27C26A7F42800F80DA9 /* KadamaVnextUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		754BB25A26A7F42200F80DA9 /* KadamaVnext */ = {
+			isa = PBXGroup;
+			children = (
+				754BB29426A7F7F400F80DA9 /* Stores */,
+				754BB29126A7F79200F80DA9 /* Models */,
+				754BB28F26A7F78100F80DA9 /* Views */,
+				754BB29026A7F78700F80DA9 /* ViewModels */,
+				754BB28E26A7F77900F80DA9 /* Utilities */,
+				754BB25B26A7F42200F80DA9 /* AppDelegate.swift */,
+				754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */,
+				754BB25F26A7F42200F80DA9 /* ViewController.swift */,
+				754BB26126A7F42200F80DA9 /* Main.storyboard */,
+				754BB26726A7F42700F80DA9 /* Assets.xcassets */,
+				754BB26926A7F42700F80DA9 /* LaunchScreen.storyboard */,
+				754BB26C26A7F42700F80DA9 /* Info.plist */,
+				754BB26426A7F42200F80DA9 /* KadamaVnext.xcdatamodeld */,
+			);
+			path = KadamaVnext;
+			sourceTree = "<group>";
+		};
+		754BB27426A7F42800F80DA9 /* KadamaVnextTests */ = {
+			isa = PBXGroup;
+			children = (
+				754BB27526A7F42800F80DA9 /* KadamaVnextTests.swift */,
+				754BB27726A7F42800F80DA9 /* Info.plist */,
+			);
+			path = KadamaVnextTests;
+			sourceTree = "<group>";
+		};
+		754BB27F26A7F42800F80DA9 /* KadamaVnextUITests */ = {
+			isa = PBXGroup;
+			children = (
+				754BB28026A7F42800F80DA9 /* KadamaVnextUITests.swift */,
+				754BB28226A7F42800F80DA9 /* Info.plist */,
+			);
+			path = KadamaVnextUITests;
+			sourceTree = "<group>";
+		};
+		754BB28E26A7F77900F80DA9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				754BB29226A7F7BB00F80DA9 /* ServiceManager.swift */,
+				754BB29726A7F83600F80DA9 /* Constants.swift */,
+				754BB29926A7FAF900F80DA9 /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		754BB28F26A7F78100F80DA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		754BB29026A7F78700F80DA9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				754BB29B26A7FE5300F80DA9 /* ObserverValue.swift */,
+				754BB29D26A7FED400F80DA9 /* PokemonManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		754BB29126A7F79200F80DA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		754BB29426A7F7F400F80DA9 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				754BB29526A7F80400F80DA9 /* PokemonStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		754BB25726A7F42200F80DA9 /* KadamaVnext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754BB28526A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnext" */;
+			buildPhases = (
+				754BB25426A7F42200F80DA9 /* Sources */,
+				754BB25526A7F42200F80DA9 /* Frameworks */,
+				754BB25626A7F42200F80DA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KadamaVnext;
+			productName = KadamaVnext;
+			productReference = 754BB25826A7F42200F80DA9 /* KadamaVnext.app */;
+			productType = "com.apple.product-type.application";
+		};
+		754BB27026A7F42800F80DA9 /* KadamaVnextTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754BB28826A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnextTests" */;
+			buildPhases = (
+				754BB26D26A7F42800F80DA9 /* Sources */,
+				754BB26E26A7F42800F80DA9 /* Frameworks */,
+				754BB26F26A7F42800F80DA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				754BB27326A7F42800F80DA9 /* PBXTargetDependency */,
+			);
+			name = KadamaVnextTests;
+			productName = KadamaVnextTests;
+			productReference = 754BB27126A7F42800F80DA9 /* KadamaVnextTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		754BB27B26A7F42800F80DA9 /* KadamaVnextUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754BB28B26A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnextUITests" */;
+			buildPhases = (
+				754BB27826A7F42800F80DA9 /* Sources */,
+				754BB27926A7F42800F80DA9 /* Frameworks */,
+				754BB27A26A7F42800F80DA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				754BB27E26A7F42800F80DA9 /* PBXTargetDependency */,
+			);
+			name = KadamaVnextUITests;
+			productName = KadamaVnextUITests;
+			productReference = 754BB27C26A7F42800F80DA9 /* KadamaVnextUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		754BB25026A7F42200F80DA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					754BB25726A7F42200F80DA9 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					754BB27026A7F42800F80DA9 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 754BB25726A7F42200F80DA9;
+					};
+					754BB27B26A7F42800F80DA9 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 754BB25726A7F42200F80DA9;
+					};
+				};
+			};
+			buildConfigurationList = 754BB25326A7F42200F80DA9 /* Build configuration list for PBXProject "KadamaVnext" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 754BB24F26A7F42200F80DA9;
+			productRefGroup = 754BB25926A7F42200F80DA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				754BB25726A7F42200F80DA9 /* KadamaVnext */,
+				754BB27026A7F42800F80DA9 /* KadamaVnextTests */,
+				754BB27B26A7F42800F80DA9 /* KadamaVnextUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		754BB25626A7F42200F80DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754BB26B26A7F42700F80DA9 /* LaunchScreen.storyboard in Resources */,
+				754BB26826A7F42700F80DA9 /* Assets.xcassets in Resources */,
+				754BB26326A7F42200F80DA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB26F26A7F42800F80DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB27A26A7F42800F80DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		754BB25426A7F42200F80DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754BB26626A7F42200F80DA9 /* KadamaVnext.xcdatamodeld in Sources */,
+				754BB29626A7F80400F80DA9 /* PokemonStore.swift in Sources */,
+				754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */,
+				754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */,
+				754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */,
+				754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */,
+				754BB29826A7F83600F80DA9 /* Constants.swift in Sources */,
+				754BB29E26A7FED400F80DA9 /* PokemonManager.swift in Sources */,
+				754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */,
+				754BB29326A7F7BB00F80DA9 /* ServiceManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB26D26A7F42800F80DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754BB27626A7F42800F80DA9 /* KadamaVnextTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754BB27826A7F42800F80DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754BB28126A7F42800F80DA9 /* KadamaVnextUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		754BB27326A7F42800F80DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 754BB25726A7F42200F80DA9 /* KadamaVnext */;
+			targetProxy = 754BB27226A7F42800F80DA9 /* PBXContainerItemProxy */;
+		};
+		754BB27E26A7F42800F80DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 754BB25726A7F42200F80DA9 /* KadamaVnext */;
+			targetProxy = 754BB27D26A7F42800F80DA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		754BB26126A7F42200F80DA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				754BB26226A7F42200F80DA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		754BB26926A7F42700F80DA9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				754BB26A26A7F42700F80DA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		754BB28326A7F42800F80DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		754BB28426A7F42800F80DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		754BB28626A7F42800F80DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnext/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		754BB28726A7F42800F80DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnext/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		754BB28926A7F42800F80DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnextTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KadamaVnext.app/KadamaVnext";
+			};
+			name = Debug;
+		};
+		754BB28A26A7F42800F80DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnextTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KadamaVnext.app/KadamaVnext";
+			};
+			name = Release;
+		};
+		754BB28C26A7F42800F80DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KadamaVnext;
+			};
+			name = Debug;
+		};
+		754BB28D26A7F42800F80DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KadamaVnextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kadama.KadamaVnextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KadamaVnext;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		754BB25326A7F42200F80DA9 /* Build configuration list for PBXProject "KadamaVnext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754BB28326A7F42800F80DA9 /* Debug */,
+				754BB28426A7F42800F80DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754BB28526A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754BB28626A7F42800F80DA9 /* Debug */,
+				754BB28726A7F42800F80DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754BB28826A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnextTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754BB28926A7F42800F80DA9 /* Debug */,
+				754BB28A26A7F42800F80DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754BB28B26A7F42800F80DA9 /* Build configuration list for PBXNativeTarget "KadamaVnextUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754BB28C26A7F42800F80DA9 /* Debug */,
+				754BB28D26A7F42800F80DA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		754BB26426A7F42200F80DA9 /* KadamaVnext.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				754BB26526A7F42200F80DA9 /* KadamaVnext.xcdatamodel */,
+			);
+			currentVersion = 754BB26526A7F42200F80DA9 /* KadamaVnext.xcdatamodel */;
+			path = KadamaVnext.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 754BB25026A7F42200F80DA9 /* Project object */;
+}
