@@ -22,6 +22,10 @@
 		754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29926A7FAF900F80DA9 /* Extensions.swift */; };
 		754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29B26A7FE5300F80DA9 /* ObserverValue.swift */; };
 		754BB29E26A7FED400F80DA9 /* PokemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB29D26A7FED400F80DA9 /* PokemonManager.swift */; };
+		754BB2A226A7FFF700F80DA9 /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A126A7FFF700F80DA9 /* PokemonResponse.swift */; };
+		754BB2A426A8001200F80DA9 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A326A8001200F80DA9 /* Pokemon.swift */; };
+		754BB2A626A8021600F80DA9 /* PersistanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A526A8021600F80DA9 /* PersistanceStore.swift */; };
+		754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A926A8093900F80DA9 /* Bindable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,11 @@
 		754BB29926A7FAF900F80DA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		754BB29B26A7FE5300F80DA9 /* ObserverValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverValue.swift; sourceTree = "<group>"; };
 		754BB29D26A7FED400F80DA9 /* PokemonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonManager.swift; sourceTree = "<group>"; };
+		754BB2A126A7FFF700F80DA9 /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
+		754BB2A326A8001200F80DA9 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		754BB2A526A8021600F80DA9 /* PersistanceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceStore.swift; sourceTree = "<group>"; };
+		754BB2A726A803C000F80DA9 /* KadamaVnext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KadamaVnext.entitlements; sourceTree = "<group>"; };
+		754BB2A926A8093900F80DA9 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,19 +122,21 @@
 		754BB25A26A7F42200F80DA9 /* KadamaVnext */ = {
 			isa = PBXGroup;
 			children = (
+				754BB2A826A8092500F80DA9 /* Protocols */,
+				754BB29F26A7FF4B00F80DA9 /* AppDelegates */,
+				754BB2A026A7FFD000F80DA9 /* Apis */,
 				754BB29426A7F7F400F80DA9 /* Stores */,
 				754BB29126A7F79200F80DA9 /* Models */,
 				754BB28F26A7F78100F80DA9 /* Views */,
 				754BB29026A7F78700F80DA9 /* ViewModels */,
 				754BB28E26A7F77900F80DA9 /* Utilities */,
-				754BB25B26A7F42200F80DA9 /* AppDelegate.swift */,
-				754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */,
 				754BB25F26A7F42200F80DA9 /* ViewController.swift */,
 				754BB26126A7F42200F80DA9 /* Main.storyboard */,
 				754BB26726A7F42700F80DA9 /* Assets.xcassets */,
 				754BB26926A7F42700F80DA9 /* LaunchScreen.storyboard */,
 				754BB26C26A7F42700F80DA9 /* Info.plist */,
 				754BB26426A7F42200F80DA9 /* KadamaVnext.xcdatamodeld */,
+				754BB2A726A803C000F80DA9 /* KadamaVnext.entitlements */,
 			);
 			path = KadamaVnext;
 			sourceTree = "<group>";
@@ -151,7 +162,6 @@
 		754BB28E26A7F77900F80DA9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				754BB29226A7F7BB00F80DA9 /* ServiceManager.swift */,
 				754BB29726A7F83600F80DA9 /* Constants.swift */,
 				754BB29926A7FAF900F80DA9 /* Extensions.swift */,
 			);
@@ -184,9 +194,37 @@
 		754BB29426A7F7F400F80DA9 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				754BB2A526A8021600F80DA9 /* PersistanceStore.swift */,
 				754BB29526A7F80400F80DA9 /* PokemonStore.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		754BB29F26A7FF4B00F80DA9 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				754BB25B26A7F42200F80DA9 /* AppDelegate.swift */,
+				754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		754BB2A026A7FFD000F80DA9 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				754BB29226A7F7BB00F80DA9 /* ServiceManager.swift */,
+				754BB2A126A7FFF700F80DA9 /* PokemonResponse.swift */,
+				754BB2A326A8001200F80DA9 /* Pokemon.swift */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
+		754BB2A826A8092500F80DA9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				754BB2A926A8093900F80DA9 /* Bindable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,7 +362,11 @@
 				754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */,
 				754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */,
 				754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */,
+				754BB2A426A8001200F80DA9 /* Pokemon.swift in Sources */,
 				754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */,
+				754BB2A226A7FFF700F80DA9 /* PokemonResponse.swift in Sources */,
+				754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */,
+				754BB2A626A8021600F80DA9 /* PersistanceStore.swift in Sources */,
 				754BB29826A7F83600F80DA9 /* Constants.swift in Sources */,
 				754BB29E26A7FED400F80DA9 /* PokemonManager.swift in Sources */,
 				754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */,
@@ -504,6 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KadamaVnext/KadamaVnext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KadamaVnext/KadamaVnext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

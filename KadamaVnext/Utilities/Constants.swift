@@ -12,6 +12,7 @@ struct CONSTANTS {
     
     
     struct API {
+        static let DEBUG_MODE_ON = true
         private static let BASE_URL = "https://pokeapi.co/api/v2/"
         static let POKEMON_LIST = BASE_URL + "pokemon/"
     }
@@ -26,8 +27,7 @@ struct CONSTANTS {
     }
     
     struct IDENTIFIERS {
-        static let EXTENSION_ID = "com.vyng.ios.calldirectoryextension"
-        static let EXTENSION_GROUP_ID = "group.com.vyng.ios"
+        static let EXTENSION_GROUP_ID = "group.com.KadamaVnext.ios"
     }
     
 }

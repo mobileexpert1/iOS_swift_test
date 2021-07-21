@@ -11,8 +11,9 @@ class PokemonStore: ServiceManager {
     static let shared = PokemonStore()
     
     // Api for getting pokemons main list
-    func getPokemons<T:Codable>(completion:@escaping (_ success:Bool,_ result:T?) -> Void) {
-        requestApi(CONSTANTS.API.POKEMON_LIST,completion: completion)
+    func getPokemons<T:Codable>(offset:Int = 0,limit:Int = 300,completion:@escaping (_ success:Bool,_ result:T?) -> Void) {
+        let url = CONSTANTS.API.POKEMON_LIST + "?offset=\(offset)" + "&limit=\(limit)"
+        requestApi(url,completion: completion)
     }
     
     // Api for downloading pokemon details

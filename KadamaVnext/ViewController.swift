@@ -7,13 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController , Bindable {
+  
+    var pokemonViewModel = PokemonManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        bindViewModel()
+        pokemonViewModel.fetchPokemontsList()
     }
 
-
+    func bindViewModel() {
+        pokemonViewModel.pokemons.addObserver(observer: self) { pokemons in
+            print(pokemons)
+        }
+    }
+    
+    
 }
+
 

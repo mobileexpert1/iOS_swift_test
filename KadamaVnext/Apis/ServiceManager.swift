@@ -66,12 +66,48 @@ extension ServiceManager {
                     else if let responseData = data{
                         let responseString = String(data: responseData, encoding: String.Encoding.utf8) as String?
                         print("Response: ",responseString ?? "No response")
+                        self.parseResponseData(data: responseData, completion: completion)
                     }
                 }
             })
             task.resume()
         }
     }
+    
+    // Decoding data to codable models
+    private func parseResponseData<T: Codable>(data: Data, completion: @escaping (ApiResult<T,APIError>) -> Void) {
+        do {
+            let responseObject = try JSONDecoder().decode(T.self, from: data)
+            completion(.success(responseObject))
+        }
+        catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            completion(.failure(.responseUnsuccessful(description: "\(parseError(context: context))")))
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                completion(.failure(.responseUnsuccessful(description: "\(parseError(context: context))")))
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                completion(.failure(.responseUnsuccessful(description: "\(parseError(context: context))")))
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                completion(.failure(.responseUnsuccessful(description: "\(parseError(context: context))")))
+            } catch {
+                print("error: ", error)
+                completion(.failure(.responseUnsuccessful(description: "\(error.localizedDescription)")))
+            }
+    }
+    
+    // Parsing decoding error
+    func parseError(context:DecodingError.Context) -> String {
+        return CONSTANTS.API.DEBUG_MODE_ON
+            ? (context.codingPath.description + context.debugDescription)
+            : "There was an error. Please try again."
+    }
+    
 }
 
 
