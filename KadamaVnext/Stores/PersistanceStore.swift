@@ -199,19 +199,14 @@ extension PersistanceStore {
     }
     
     
-    public func fetchOriginalContact(number: String) -> PokemonDetail? {
+     func fetchPokemon(id: String) -> PokemonDetail? {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
-        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
-       // fetchedRequest.fetchLimit = 1
-        
+        fetchedRequest.predicate = NSPredicate(format: "id == %@", id)
+       fetchedRequest.fetchLimit = 1
         do {
             
             let results = try context.fetch(fetchedRequest)
-            if results.count != 0 {
-                //  results[0].setValue(label, forKey: "label")
-                for data in results {
-                  //  print(" Name : ",data.label as Any , "Number : ",data.number  as Any, "creationDate : ",data.creationDate as Any)
-                }
+            if results.count > 0 {
                 return results[0]
             }
         } catch let error {

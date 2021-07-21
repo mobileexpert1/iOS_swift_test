@@ -78,8 +78,34 @@ class PokemonManager : NSObject{
             if success {
                 guard let self = self , let pokemon = pokemon else {return}
                 self.persistantStore.savePokemon(pokemon: pokemon)
+                self.updatePokemonDetail(pokemon: pokemon)
             }
         }
+    }
+    
+    func updatePokemonDetail(pokemon:Pokemon){
+       
+        if let detail = persistantStore.fetchPokemon(id: "\(pokemon.id ?? 0)") {
+            let updatedPokemon = Pokemon(name: detail.name , url: detail.url, abilities: nil, sprites: nil, id: Int(detail.id ?? "0") ,image: detail.image,abilitiesString: detail.abilities)
+            if let index =  self.pokemonsStorage.value.firstIndex(where: { current in
+                if let id = parsePokemonURL(url: current.url ?? "") {
+                    return "\(updatedPokemon.id ?? 0)" == id
+                }
+                else if let id = current.id {
+                    return (updatedPokemon.id ?? 0) == id
+                }
+                return false
+            }) {
+                if (pokemonsStorage.value.count > index){
+                self.pokemonsStorage.value[index] = updatedPokemon
+                }
+                if (pokemons.value.count > index){
+                self.pokemons.value[index] = updatedPokemon
+                }
+            }
+        }
+       
+        
     }
     
     func parsePokemonURL(url:String) -> Substring? {

@@ -58,7 +58,7 @@ extension ServiceManager {
                             print("NotConnectedToInternet")
                             AlertFactory.showAlert(message: "No internet connection")
                         default:
-                            AlertFactory.showAlert(message: "There was an error in the response. Please try again.")
+                            AlertFactory.showAlert(message: error.localizedDescription)
                             break
                         }
                         completion(.failure(.jsonDecodingFailure))
