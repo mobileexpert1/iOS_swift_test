@@ -12,6 +12,7 @@
 		7532819C26A93DBD00AE811F /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819726A93DBC00AE811F /* StrokeColorAnimation.swift */; };
 		7532819D26A93DBD00AE811F /* RotateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819826A93DBC00AE811F /* RotateAnimation.swift */; };
 		7532819E26A93DBD00AE811F /* IndicatorShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819926A93DBD00AE811F /* IndicatorShapeLayer.swift */; };
+		753281A026A954AB00AE811F /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819F26A954AB00AE811F /* LaunchView.swift */; };
 		754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25B26A7F42200F80DA9 /* AppDelegate.swift */; };
 		754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */; };
 		754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25F26A7F42200F80DA9 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		7532819726A93DBC00AE811F /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		7532819826A93DBC00AE811F /* RotateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimation.swift; sourceTree = "<group>"; };
 		7532819926A93DBD00AE811F /* IndicatorShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorShapeLayer.swift; sourceTree = "<group>"; };
+		7532819F26A954AB00AE811F /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		754BB25826A7F42200F80DA9 /* KadamaVnext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KadamaVnext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754BB25B26A7F42200F80DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		754BB28F26A7F78100F80DA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7532819F26A954AB00AE811F /* LaunchView.swift */,
 				754BB2B426A813B400F80DA9 /* CustomViews */,
 				754BB2AF26A80FD100F80DA9 /* Cells */,
 				754BB2AB26A80C0700F80DA9 /* BaseNavigationController.swift */,
@@ -418,6 +421,7 @@
 				754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */,
 				754BB2A226A7FFF700F80DA9 /* PokemonResponse.swift in Sources */,
 				754BB2AC26A80C0700F80DA9 /* BaseNavigationController.swift in Sources */,
+				753281A026A954AB00AE811F /* LaunchView.swift in Sources */,
 				754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */,
 				754BB2AE26A80FBC00F80DA9 /* BaseTableViewController.swift in Sources */,
 				7532819B26A93DBD00AE811F /* StrokeAnimation.swift in Sources */,
@@ -602,6 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M4DHA92SW6;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M4DHA92SW6;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

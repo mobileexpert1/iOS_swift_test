@@ -23,7 +23,11 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         viewModel.fetchPokemontsDetails(pokemon: item )
         titleLabel.text = item?.name?.capitalized
         guard let image = item?.image else {
-            thumbnailImageView.image = nil
+            if let id = parsePokemonURL(url: item?.url ?? "") {
+                let url = CONSTANTS.API.IMAGE_BASE_URL + "\(id).png"
+                // By assurance that url will be the same always otherwise this static check will fail
+                thumbnailImageView.loadImageUsingUrlString(url)
+            }
             return
         }
         thumbnailImageView.loadImageUsingUrlString(image)
@@ -80,6 +84,11 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         thumbnailImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, topConstant: 10, leftConstant: 10, bottomConstant: 10, widthConstant: 150, heightConstant: 150)
         titleLabel.anchor(thumbnailImageView.topAnchor, left: thumbnailImageView.rightAnchor,right: self.rightAnchor, topConstant: 10, leftConstant: 10, rightConstant: 10)
         abilitiesLabel.anchor(titleLabel.bottomAnchor,left: titleLabel.leftAnchor,right: self.rightAnchor, topConstant: 10, rightConstant: 10)
+    }
+    
+    func parsePokemonURL(url:String) -> Substring? {
+        let splits = url.split(separator: "/")
+        return splits.last
     }
     
 }

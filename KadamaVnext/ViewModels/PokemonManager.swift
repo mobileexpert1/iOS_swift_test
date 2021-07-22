@@ -9,11 +9,19 @@ import Foundation
 
 class PokemonManager : NSObject{
     
+    enum SortBy {
+        case number
+        case name
+    }
+    
     var pokemons : ObserverValue<[Pokemon]> = ObserverValue([])
     private var pokemonsStorage : ObserverValue<[Pokemon]> = ObserverValue([])
     var showActivity : ObserverValue<Bool> = ObserverValue(false)
+    var sortBy : ObserverValue<SortBy> = ObserverValue(SortBy.number)
     var canLoadNext = true
     var persistantStore = PersistanceStore()
+    
+    
     // Fetch all pokemon list
     func fetchPokemontsList() {
         showActivity.value = true
@@ -73,17 +81,19 @@ class PokemonManager : NSObject{
             print("exists")
             return;
         }
-        PokemonStore.shared.getPokemonDetails(id: pokemonID) { [weak self] (success, pokemon:Pokemon?) in
+        PokemonStore.shared.getPokemonDetails(id: pokemonID) { [weak self] (success, pokemonDetail:Pokemon?) in
             if success {
-                guard let self = self , let pokemon = pokemon else {return}
-                self.persistantStore.savePokemon(pokemon: pokemon)
-                self.updatePokemonDetail(pokemon: pokemon)
+                guard let self = self , let poke = pokemonDetail else {return}
+                var updatedPokemon = poke
+                updatedPokemon.url = pokemon.url
+                self.persistantStore.savePokemon(pokemon: updatedPokemon)
+                self.updatePokemonDetail(pokemon: updatedPokemon)
             }
         }
     }
     
     func updatePokemonDetail(pokemon:Pokemon){
-       
+        
         if let detail = persistantStore.fetchPokemon(id: "\(pokemon.id ?? 0)") {
             let updatedPokemon = Pokemon(name: detail.name , url: detail.url, abilities: nil, sprites: nil, id: Int(detail.id ?? "0") ,image: detail.image,abilitiesString: detail.abilities)
             if let index =  self.pokemonsStorage.value.firstIndex(where: { current in
@@ -96,20 +106,54 @@ class PokemonManager : NSObject{
                 return false
             }) {
                 if (pokemonsStorage.value.count > index){
-                self.pokemonsStorage.value[index] = updatedPokemon
+                    self.pokemonsStorage.value[index] = updatedPokemon
                 }
                 if (pokemons.value.count > index){
-                self.pokemons.value[index] = updatedPokemon
+                    self.pokemons.value[index] = updatedPokemon
                 }
             }
         }
-       
+        
         
     }
     
     func parsePokemonURL(url:String) -> Substring? {
         let splits = url.split(separator: "/")
         return splits.last
+    }
+    
+    func togglePokemomSorting(){
+        switch sortBy.value {
+        case .number:
+            sortByName()
+            sortBy.value = .name
+        case .name:
+            sortByNumber()
+            sortBy.value = .number
+        }
+        
+    }
+    
+    private func sortByNumber(){
+        self.pokemons.value =  self.pokemons.value.sorted { (first, second) in
+            guard let first = first.id , let second = second.id else {return false}
+           return first < second
+        }
+        self.pokemonsStorage.value =  self.pokemonsStorage.value.sorted { (first, second) in
+            guard let first = first.id , let second = second.id else {return false}
+           return first < second
+        }
+    }
+    
+    private func sortByName(){
+        self.pokemons.value =  self.pokemons.value.sorted { (first, second) in
+            guard let first = first.name , let second = second.name else {return false}
+           return first < second
+        }
+        self.pokemonsStorage.value =  self.pokemonsStorage.value.sorted { (first, second) in
+            guard let first = first.name , let second = second.name else {return false}
+           return first < second
+        }
     }
     
     

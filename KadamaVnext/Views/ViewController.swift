@@ -30,7 +30,8 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
          self.navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
         
-        
+        let filterBtn = UIBarButtonItem(image: UIImage.init(systemName: "arrow.up.arrow.down.circle.fill"), style: .plain, target: self, action: #selector(sortPokemons))
+        self.navigationItem.rightBarButtonItem  = filterBtn
     }
 
     override func loadData() {
@@ -62,6 +63,10 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
         guard let cell = cell as? PokemonCell else {return}
         cell.pokemonViewModel = self.viewModel
     }
+ 
+    @objc func sortPokemons(){
+        viewModel?.togglePokemomSorting()
+    }
     
 }
 
@@ -71,16 +76,6 @@ extension ViewController : UISearchBarDelegate {
         
         searchBar.resignFirstResponder()
     }
-    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if !(searchBar.searchTextField.text?.isEmpty ?? true){
-//            guard let searchText = searchBar.text else {return}
-//            let trimmedPhoneNumber = String(searchText.filter { !" \n\t\r".contains($0) })
-//            let finalTrimmedPhoneNumber = trimmedPhoneNumber.stripped
-//            self.searchViewModel.searchUser(number: (finalTrimmedPhoneNumber.isEmpty) ? searchText : finalTrimmedPhoneNumber)
-//        }
-//        searchBar.resignFirstResponder()
-//    }
     
      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel?.searchPokemon(string: "")

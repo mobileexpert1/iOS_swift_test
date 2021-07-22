@@ -15,7 +15,7 @@ import Foundation
 
 struct Pokemon: Codable {
     let name: String?
-    let url: String?
+    var url: String?
     let abilities: [Ability]?
     let sprites: Sprites?
     let id: Int?
