@@ -109,7 +109,7 @@ extension ServiceManager {
 }
 
 
-
+// MARK: Generic api results
 enum ApiResult<T, U> where U: Error , T:Codable  {
     case success(T?)
     case failure(U)

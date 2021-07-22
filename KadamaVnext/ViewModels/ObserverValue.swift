@@ -23,11 +23,12 @@ class ObserverValue<T> {
     
     private var observers = [String:CompletionHandler]()
     
-    
+    // Add observer only , does not notify first
     func addObserver(observer:NSObject,completionHandler : @escaping CompletionHandler) {
         observers[observer.description] = completionHandler
     }
     
+    // Add and notify the observers immediately
     func addAndNotify(observer:NSObject,completionHandler:@escaping CompletionHandler) {
         self.addObserver(observer: observer, completionHandler: completionHandler)
     }

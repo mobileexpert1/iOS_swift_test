@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-let imageCache = NSCache<NSString, UIImage>()
+//let imageCache = NSCache<NSString, UIImage>()
 
 class CachedImageView: UIImageView {
     
@@ -46,6 +46,7 @@ class CachedImageView: UIImageView {
         }).resume()
         
         // NSCache implementation , Issue with limited memory
+        
 //        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
 //            self.image = imageFromCache
 //            return

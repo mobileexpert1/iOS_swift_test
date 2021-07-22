@@ -13,6 +13,11 @@ public class PersistanceStore {
     
     static let shared = PersistanceStore()
     
+    //MARK: - Constructor
+    public init() {}
+    
+    
+    
     //MARK: - Variables
     lazy var persistentContainer: NSPersistentContainer = {
         
@@ -60,12 +65,7 @@ public class PersistanceStore {
     }
     
     
-    //MARK: - Constructor
-    public init() {
-        
-    }
-    
-    
+   
     // MARK: - Core Data Saving support
     public func saveContext () {
         let context = persistentContainer.viewContext
@@ -80,6 +80,7 @@ public class PersistanceStore {
         }
     }
     
+    // Save single pokemon
      func savePokemon(pokemon:Pokemon) {
         
         guard let entity = NSEntityDescription.entity(forEntityName: "PokemonDetail", in: context) else { return }
@@ -136,8 +137,7 @@ public class PersistanceStore {
 
 extension PersistanceStore {
     
-    
-    
+    // Fetch all pokemons from core data
     public func fetchAllPokemons() -> [PokemonDetail] {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
         do {
@@ -149,7 +149,7 @@ extension PersistanceStore {
         }
     }
     
-    
+    // Fetch single pokemon from core data
      func fetchPokemon(id: String) -> PokemonDetail? {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
         fetchedRequest.predicate = NSPredicate(format: "id == %@", id)
@@ -168,6 +168,7 @@ extension PersistanceStore {
     }
     
     
+    // Check if pokemon exists mainly to find if image is there because there can be local pokemons without image
     public func doesPokemonExist(id: String) -> Bool {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
         fetchedRequest.predicate = NSPredicate(format: "id == %@", id)
@@ -184,6 +185,7 @@ extension PersistanceStore {
         }
     }
     
+    // Delete pokemon Not used
     public func removePokemon(with number:String) {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
         fetchedRequest.predicate = NSPredicate(format: "id == %@", number)
@@ -203,6 +205,7 @@ extension PersistanceStore {
         }
     }
     
+    // Delete all pokemonds Not used
     public func removeAllPokemonDetail() {
         let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
         do {

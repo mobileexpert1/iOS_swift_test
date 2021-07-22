@@ -15,7 +15,7 @@ class PokemonManager : NSObject{
     }
     
     var pokemons : ObserverValue<[Pokemon]> = ObserverValue([])
-    private var pokemonsStorage : ObserverValue<[Pokemon]> = ObserverValue([])
+    var pokemonsStorage : ObserverValue<[Pokemon]> = ObserverValue([])
     var showActivity : ObserverValue<Bool> = ObserverValue(false)
     var sortBy : ObserverValue<SortBy> = ObserverValue(SortBy.number)
     var canLoadNext = true
@@ -45,9 +45,9 @@ class PokemonManager : NSObject{
                 self?.showActivity.value = false
             }
         }
-        
     }
     
+    // Save all pokemons to core data
     func savePokemonsToLocal(pokemons:[Pokemon]){
         for pokemon in pokemons {
             self.persistantStore.savePokemon(pokemon: pokemon)
@@ -56,6 +56,7 @@ class PokemonManager : NSObject{
         print(test)
     }
     
+    // Save load local pokemons
     func loadLocalPokemons(){
         var pokemonsList = [Pokemon]()
         let allPokemons = self.persistantStore.fetchAllPokemons()
@@ -70,7 +71,6 @@ class PokemonManager : NSObject{
     
     // Fetch pokemon details
     func fetchPokemontsDetails(pokemon:Pokemon) {
-        
         var pokemonID = ""
         if let id = parsePokemonURL(url: pokemon.url ?? "") {
             pokemonID = String(id)
@@ -95,6 +95,7 @@ class PokemonManager : NSObject{
         }
     }
     
+    // Update image and abilities of pokemon if does not exits
     func updatePokemonDetail(pokemon:Pokemon){
         
         if let detail = persistantStore.fetchPokemon(id: "\(pokemon.id ?? 0)") {
@@ -120,11 +121,13 @@ class PokemonManager : NSObject{
         
     }
     
+    // parsing pokemond url to get the id of the pokemon as api only return name and url
     func parsePokemonURL(url:String) -> Substring? {
         let splits = url.split(separator: "/")
         return splits.last
     }
     
+    // Toggle sorting
     func togglePokemomSorting(){
         switch sortBy.value {
         case .number:
@@ -137,6 +140,7 @@ class PokemonManager : NSObject{
         
     }
     
+    // Sort pokemons by their id
     private func sortByNumber(){
         self.pokemons.value =  self.pokemons.value.sorted { (first, second) in
             guard let first = first.id , let second = second.id else {return false}
@@ -148,6 +152,7 @@ class PokemonManager : NSObject{
         }
     }
     
+    // Sort pokemons by their name
     private func sortByName(){
         self.pokemons.value =  self.pokemons.value.sorted { (first, second) in
             guard let first = first.name , let second = second.name else {return false}
@@ -162,12 +167,11 @@ class PokemonManager : NSObject{
     
     // Search pokemons locally
     func searchPokemon(string:String){
-        
         if (string.isEmpty){
+            // if empty , no change required
             self.pokemons.value = self.pokemonsStorage.value
             return
         }
-        
         let filtered = self.pokemonsStorage.value.filter { pokemon in
             let nameMatch = (pokemon.name?.lowercased().contains(string.lowercased())) ?? false
             let abilitiesMatch = (pokemon.abilitiesString?.lowercased().contains(string.lowercased())) ?? false

@@ -284,6 +284,9 @@ class JSONNull: Codable, Hashable {
         return true
     }
 
+    func hash(into hasher: inout Hasher) {
+        
+    }
     public var hashValue: Int {
         return 0
     }

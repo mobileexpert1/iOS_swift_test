@@ -18,9 +18,7 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         }
     }
     
-    func loadData(){
-        
-    }
+    func loadData(){ }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +35,7 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         tableView.refreshControl?.endRefreshing()
     }
     
+    // MARK: TableView delegates
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -51,7 +50,5 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         return cell
     }
     
-    func cellForRowAt(indexPath: IndexPath,cell:BaseTableViewCell<U>) {
-        
-    }
+    func cellForRowAt(indexPath: IndexPath,cell:BaseTableViewCell<U>) {}
 }

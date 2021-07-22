@@ -31,7 +31,6 @@
 		754BB2A426A8001200F80DA9 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A326A8001200F80DA9 /* Pokemon.swift */; };
 		754BB2A626A8021600F80DA9 /* PersistanceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A526A8021600F80DA9 /* PersistanceStore.swift */; };
 		754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2A926A8093900F80DA9 /* Bindable.swift */; };
-		754BB2AC26A80C0700F80DA9 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2AB26A80C0700F80DA9 /* BaseNavigationController.swift */; };
 		754BB2AE26A80FBC00F80DA9 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2AD26A80FBC00F80DA9 /* BaseTableViewController.swift */; };
 		754BB2B126A80FEA00F80DA9 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2B026A80FEA00F80DA9 /* BaseTableViewCell.swift */; };
 		754BB2B326A8105600F80DA9 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB2B226A8105600F80DA9 /* PokemonCell.swift */; };
@@ -87,7 +86,6 @@
 		754BB2A526A8021600F80DA9 /* PersistanceStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceStore.swift; sourceTree = "<group>"; };
 		754BB2A726A803C000F80DA9 /* KadamaVnext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KadamaVnext.entitlements; sourceTree = "<group>"; };
 		754BB2A926A8093900F80DA9 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		754BB2AB26A80C0700F80DA9 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		754BB2AD26A80FBC00F80DA9 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		754BB2B026A80FEA00F80DA9 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		754BB2B226A8105600F80DA9 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				7532819F26A954AB00AE811F /* LaunchView.swift */,
 				754BB2B426A813B400F80DA9 /* CustomViews */,
 				754BB2AF26A80FD100F80DA9 /* Cells */,
-				754BB2AB26A80C0700F80DA9 /* BaseNavigationController.swift */,
 				754BB2AD26A80FBC00F80DA9 /* BaseTableViewController.swift */,
 				754BB25F26A7F42200F80DA9 /* ViewController.swift */,
 			);
@@ -420,7 +417,6 @@
 				754BB2B626A813C300F80DA9 /* CachedImageView.swift in Sources */,
 				754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */,
 				754BB2A226A7FFF700F80DA9 /* PokemonResponse.swift in Sources */,
-				754BB2AC26A80C0700F80DA9 /* BaseNavigationController.swift in Sources */,
 				753281A026A954AB00AE811F /* LaunchView.swift in Sources */,
 				754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */,
 				754BB2AE26A80FBC00F80DA9 /* BaseTableViewController.swift in Sources */,

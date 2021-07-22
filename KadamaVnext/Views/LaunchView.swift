@@ -8,9 +8,7 @@
 import UIKit
 
 class LaunchView: UIViewController {
-    
-    
-    
+
     let splashImgView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "splash")
