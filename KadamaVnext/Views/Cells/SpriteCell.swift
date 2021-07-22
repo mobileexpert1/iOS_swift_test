@@ -43,8 +43,6 @@ class SpriteCell: UITableViewCell {
     
     func setupViews(){
         addSubview(collectionView)
-        //addSubview(thumbnailImageView)
-       // thumbnailImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, topConstant: 10, leftConstant: 10, bottomConstant: 10, widthConstant: 150, heightConstant: 150)
         collectionView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
        let constraint = collectionView.heightAnchor.constraint(equalToConstant: 300)
         constraint.priority = .defaultLow

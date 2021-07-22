@@ -55,15 +55,7 @@ class PokemonDetailModel : NSObject{
         if let image = detail.sprites?.other?.officialArtwork?.frontDefault {
             imagesUrls.append(image)
         }
-//        if let image = detail.sprites?.frontDefault {
-//            imagesUrls.append(image)
-//        }
-//        if let image = detail.sprites?.backDefault {
-//            imagesUrls.append(image)
-//        }
-//        if let image = detail.sprites?.backShiny {
-//            imagesUrls.append(image)
-//        }
+
         return imagesUrls
     }
 }
