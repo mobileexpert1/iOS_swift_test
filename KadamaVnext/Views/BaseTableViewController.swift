@@ -18,12 +18,11 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         }
     }
     
-    func loadData(){ }
+    func loadData(){}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(T.self, forCellReuseIdentifier: cellId)
-        
         tableView.tableFooterView = UIView()
         let rc = UIRefreshControl()
         rc.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
@@ -50,5 +49,10 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectRowAt(indexPath: indexPath)
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {}
     func cellForRowAt(indexPath: IndexPath,cell:BaseTableViewCell<U>) {}
 }

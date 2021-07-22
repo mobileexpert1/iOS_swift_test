@@ -65,6 +65,13 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
         cell.pokemonViewModel = self.viewModel
     }
     
+    override func didSelectRowAt(indexPath: IndexPath) {
+        guard (self.viewModel?.pokemons.value.count)! > indexPath.row else{return}
+        let controller = DetailViewController()
+        controller.pokemon = self.viewModel?.pokemons.value[indexPath.row]
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     // Sorting pokemonds
     @objc func sortPokemons(){
         viewModel?.togglePokemomSorting()
