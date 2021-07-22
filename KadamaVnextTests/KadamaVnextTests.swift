@@ -19,8 +19,7 @@ class KadamaVnextTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
     }
 
     func testPerformanceExample() throws {
@@ -30,4 +29,39 @@ class KadamaVnextTests: XCTestCase {
         }
     }
 
+    // private function to request apis
+    private func requestAPI<T:Codable>(_ url: String,showLoader:Bool = true, completion: @escaping (ApiResult<T,APIError>) -> Void) {
+        let url = URL(string: url)
+        print("URL ",url?.absoluteString ?? "")
+        //  if !HUD.isVisible {
+        //   HUD.show(.progress)
+        //   }
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        if let usableUrl = url {
+            let task = session.dataTask(with: usableUrl, completionHandler: { (data, response, error) in
+                DispatchQueue.main.async {
+                    //   HUD.hide()
+                    if let error = error {
+                        print("--------- Error -------",error.localizedDescription)
+                        switch URLError.Code(rawValue: error._code) {
+                        case .notConnectedToInternet:
+                            print("NotConnectedToInternet")
+                            AlertFactory.showAlert(message: "No internet connection")
+                        default:
+                           // AlertFactory.showAlert(message: error.localizedDescription)
+                            break
+                        }
+                        completion(.failure(.jsonDecodingFailure))
+                    }
+                    else if let responseData = data{
+                       // let responseString = String(data: responseData, encoding: String.Encoding.utf8) as String?
+                       // print("Response: ",responseString ?? "No response")
+                      //  self.parseResponseData(data: responseData, completion: completion)
+                    }
+                }
+            })
+            task.resume()
+        }
+    }
+    
 }

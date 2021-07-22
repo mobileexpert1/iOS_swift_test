@@ -34,7 +34,7 @@ extension ServiceManager {
             case .success(let result):
                 completion(true, result ?? nil)
             case.failure(let error):
-                AlertFactory.showAlert(message: error.localizedDescription)
+              //  AlertFactory.showAlert(message: error.localizedDescription)
                 print(error.customDescription)
                 completion(false, nil)
             }
@@ -45,14 +45,10 @@ extension ServiceManager {
     private func requestAPI<T:Codable>(_ url: String,showLoader:Bool = true, completion: @escaping (ApiResult<T,APIError>) -> Void) {
         let url = URL(string: url)
         print("URL ",url?.absoluteString ?? "")
-        //  if !HUD.isVisible {
-        //   HUD.show(.progress)
-        //   }
         let session = URLSession(configuration: URLSessionConfiguration.default)
         if let usableUrl = url {
             let task = session.dataTask(with: usableUrl, completionHandler: { (data, response, error) in
                 DispatchQueue.main.async {
-                    //   HUD.hide()
                     if let error = error {
                         print("--------- Error -------",error.localizedDescription)
                         switch URLError.Code(rawValue: error._code) {

@@ -41,6 +41,9 @@ class PokemonManager : NSObject{
                 self.pokemons.value.append(contentsOf: pokemon?.results ?? [])
                 self.pokemonsStorage.value.append(contentsOf: pokemon?.results ?? [])
             }
+            else{
+                self?.showActivity.value = false
+            }
         }
         
     }
