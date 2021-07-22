@@ -16,6 +16,9 @@
 		753281A226A9806300AE811F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753281A126A9806300AE811F /* DetailViewController.swift */; };
 		753281A426A9816700AE811F /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753281A326A9816700AE811F /* PokemonDetail.swift */; };
 		753281A626A987F700AE811F /* PokemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753281A526A987F700AE811F /* PokemonDetailViewModel.swift */; };
+		753281A826A991D300AE811F /* SpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753281A726A991D300AE811F /* SpriteCell.swift */; };
+		753281AA26A995BA00AE811F /* SpriteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753281A926A995BA00AE811F /* SpriteCollectionCell.swift */; };
+		753281AC26A9A32A00AE811F /* ReleaseNotes in Resources */ = {isa = PBXBuildFile; fileRef = 753281AB26A9A32900AE811F /* ReleaseNotes */; };
 		754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25B26A7F42200F80DA9 /* AppDelegate.swift */; };
 		754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */; };
 		754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25F26A7F42200F80DA9 /* ViewController.swift */; };
@@ -67,6 +70,9 @@
 		753281A126A9806300AE811F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		753281A326A9816700AE811F /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
 		753281A526A987F700AE811F /* PokemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModel.swift; sourceTree = "<group>"; };
+		753281A726A991D300AE811F /* SpriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCell.swift; sourceTree = "<group>"; };
+		753281A926A995BA00AE811F /* SpriteCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCollectionCell.swift; sourceTree = "<group>"; };
+		753281AB26A9A32900AE811F /* ReleaseNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReleaseNotes; sourceTree = "<group>"; };
 		754BB25826A7F42200F80DA9 /* KadamaVnext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KadamaVnext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754BB25B26A7F42200F80DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				754BB26C26A7F42700F80DA9 /* Info.plist */,
 				754BB26426A7F42200F80DA9 /* KadamaVnext.xcdatamodeld */,
 				754BB2A726A803C000F80DA9 /* KadamaVnext.entitlements */,
+				753281AB26A9A32900AE811F /* ReleaseNotes */,
 			);
 			path = KadamaVnext;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 			children = (
 				754BB2B026A80FEA00F80DA9 /* BaseTableViewCell.swift */,
 				754BB2B226A8105600F80DA9 /* PokemonCell.swift */,
+				753281A726A991D300AE811F /* SpriteCell.swift */,
+				753281A926A995BA00AE811F /* SpriteCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -390,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753281AC26A9A32A00AE811F /* ReleaseNotes in Resources */,
 				754BB26B26A7F42700F80DA9 /* LaunchScreen.storyboard in Resources */,
 				754BB26826A7F42700F80DA9 /* Assets.xcassets in Resources */,
 			);
@@ -422,10 +432,12 @@
 				754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */,
 				7532819D26A93DBD00AE811F /* RotateAnimation.swift in Sources */,
 				753281A626A987F700AE811F /* PokemonDetailViewModel.swift in Sources */,
+				753281A826A991D300AE811F /* SpriteCell.swift in Sources */,
 				754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */,
 				754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */,
 				754BB2A426A8001200F80DA9 /* Pokemon.swift in Sources */,
 				754BB2B626A813C300F80DA9 /* CachedImageView.swift in Sources */,
+				753281AA26A995BA00AE811F /* SpriteCollectionCell.swift in Sources */,
 				754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */,
 				754BB2A226A7FFF700F80DA9 /* PokemonResponse.swift in Sources */,
 				753281A026A954AB00AE811F /* LaunchView.swift in Sources */,

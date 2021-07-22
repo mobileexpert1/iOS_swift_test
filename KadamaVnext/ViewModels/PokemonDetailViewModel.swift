@@ -48,4 +48,22 @@ class PokemonDetailModel : NSObject{
         let string = detail.abilities?.map({($0.ability.name ).capitalized}).joined(separator: ", ")
         return string ?? "No Abilities"
     }
+    
+    func getSprites() -> [String] {
+        guard let detail = pokemonDetail.value else {return []}
+        var imagesUrls = [String]()
+        if let image = detail.sprites?.other?.officialArtwork?.frontDefault {
+            imagesUrls.append(image)
+        }
+//        if let image = detail.sprites?.frontDefault {
+//            imagesUrls.append(image)
+//        }
+//        if let image = detail.sprites?.backDefault {
+//            imagesUrls.append(image)
+//        }
+//        if let image = detail.sprites?.backShiny {
+//            imagesUrls.append(image)
+//        }
+        return imagesUrls
+    }
 }

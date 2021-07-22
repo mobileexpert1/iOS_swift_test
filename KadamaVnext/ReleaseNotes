@@ -1,0 +1,31 @@
+Application : Test kadama
+
+Featueres :
+Animated splash screen : LaunchView.swift
+Image Cache : CachedImageView.swift (NSCache and File manager storage)
+List of pokemons : ViewController.swift
+Pokemon Detail : DetailViewController.swift
+Api manager : ServiceManager.swift (URLSession)
+Local storage : PersistanceStore.swift (Core data)
+Dark mode support : YES
+Programmatic UI : YES
+Architecture used : MVVM / MVC
+SourceControl : GIT (Local)
+Time spent : 15 hours (Most of it was due to the fact as required data was not coming in same api otherwise it could have been completed in 4-5 hours)
+
+
+Issues faced :
+1) I did not find any api that returns all the required data in one api. The main api only returned the url to get the data so i have to manually call every detail api and then store the details locally. Normally any important basic data comes in a single api like name , image etc and another api is called for any more details
+{
+  "count": 1118,
+  "next": "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    },
+
+2) Due to time constraints , i was not able to do much UI/UX on detail page.
+
+
