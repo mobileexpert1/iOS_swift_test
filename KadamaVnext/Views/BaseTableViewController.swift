@@ -49,6 +49,10 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectRowAt(indexPath: indexPath)
     }

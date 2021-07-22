@@ -83,7 +83,7 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         addSubview(thumbnailImageView)
         addSubview(titleLabel)
         addSubview(abilitiesLabel)
-        thumbnailImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, topConstant: 10, leftConstant: 10, bottomConstant: 10, widthConstant: 150, heightConstant: 150)
+        thumbnailImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, topConstant: 10, leftConstant: 10, bottomConstant: 10, widthConstant: 150)
         titleLabel.anchor(thumbnailImageView.topAnchor, left: thumbnailImageView.rightAnchor,right: self.rightAnchor, topConstant: 10, leftConstant: 10, rightConstant: 10)
         abilitiesLabel.anchor(titleLabel.bottomAnchor,left: titleLabel.leftAnchor,right: self.rightAnchor, topConstant: 10, rightConstant: 10)
     }
