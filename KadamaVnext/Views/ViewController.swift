@@ -11,17 +11,26 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
   
     lazy var searchBar = UISearchBar(frame: .zero)
     private let searchController = UISearchController(searchResultsController: nil)
-   // var pokemonViewModel = PokemonManager()
+  
+    // MARK: - Properties
+    let loadingIndicator: IndicatorView = {
+        let progress = IndicatorView(colors: [.red, .systemGreen, .systemBlue], lineWidth: 8)
+        progress.translatesAutoresizingMaskIntoConstraints = false
+        return progress
+    }()
+    
     override func viewDidLoad() {
         viewModel = PokemonManager()
         bindViewModel()
         super.viewDidLoad()
         self.title = "Pokemon"
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.systemBackground
         //navigationItem.titleView = searchBar
         self.navigationItem.searchController = searchController
          self.navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
+        
+        
     }
 
     override func loadData() {
@@ -31,7 +40,16 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
     func bindViewModel() {
         viewModel?.pokemons.addObserver(observer: self) {[weak self] pokemons in
             self?.items = pokemons
+            self?.viewModel?.showActivity.value = false
         }
+        viewModel?.showActivity.addObserver(observer: self, completionHandler: { [weak self] show in
+            if show{
+            self?.loadingIndicator.show()
+            }
+            else {
+                self?.loadingIndicator.hide()
+            }
+        })
     }
     
     override func handleRefresh() {

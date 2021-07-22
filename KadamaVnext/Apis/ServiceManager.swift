@@ -23,6 +23,8 @@ class ServiceManager: NSObject {
     var showError = true
     
 }
+
+//MARK: - Api manager extentions
 extension ServiceManager {
     
     // Public function to request apis
@@ -58,14 +60,14 @@ extension ServiceManager {
                             print("NotConnectedToInternet")
                             AlertFactory.showAlert(message: "No internet connection")
                         default:
-                            AlertFactory.showAlert(message: error.localizedDescription)
+                           // AlertFactory.showAlert(message: error.localizedDescription)
                             break
                         }
                         completion(.failure(.jsonDecodingFailure))
                     }
                     else if let responseData = data{
-                        let responseString = String(data: responseData, encoding: String.Encoding.utf8) as String?
-                        print("Response: ",responseString ?? "No response")
+                       // let responseString = String(data: responseData, encoding: String.Encoding.utf8) as String?
+                       // print("Response: ",responseString ?? "No response")
                         self.parseResponseData(data: responseData, completion: completion)
                     }
                 }

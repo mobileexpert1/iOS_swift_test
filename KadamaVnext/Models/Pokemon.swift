@@ -131,9 +131,10 @@ struct Versions: Codable {
 // MARK: - Sprites
 struct Sprites: Codable {
     let other: Other?
-    
+    let frontDefault: String
     enum CodingKeys: String, CodingKey {
         case other
+        case frontDefault = "front_default"
     }
 }
 

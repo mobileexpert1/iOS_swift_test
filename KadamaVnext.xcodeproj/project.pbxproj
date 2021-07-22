@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7532819A26A93DBD00AE811F /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819526A93DBC00AE811F /* IndicatorView.swift */; };
+		7532819B26A93DBD00AE811F /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819626A93DBC00AE811F /* StrokeAnimation.swift */; };
+		7532819C26A93DBD00AE811F /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819726A93DBC00AE811F /* StrokeColorAnimation.swift */; };
+		7532819D26A93DBD00AE811F /* RotateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819826A93DBC00AE811F /* RotateAnimation.swift */; };
+		7532819E26A93DBD00AE811F /* IndicatorShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532819926A93DBD00AE811F /* IndicatorShapeLayer.swift */; };
 		754BB25C26A7F42200F80DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25B26A7F42200F80DA9 /* AppDelegate.swift */; };
 		754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */; };
 		754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BB25F26A7F42200F80DA9 /* ViewController.swift */; };
@@ -50,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7532819526A93DBC00AE811F /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		7532819626A93DBC00AE811F /* StrokeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
+		7532819726A93DBC00AE811F /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
+		7532819826A93DBC00AE811F /* RotateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateAnimation.swift; sourceTree = "<group>"; };
+		7532819926A93DBD00AE811F /* IndicatorShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorShapeLayer.swift; sourceTree = "<group>"; };
 		754BB25826A7F42200F80DA9 /* KadamaVnext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KadamaVnext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754BB25B26A7F42200F80DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754BB25D26A7F42200F80DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +117,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7532819426A93D9300AE811F /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				7532819526A93DBC00AE811F /* IndicatorView.swift */,
+				7532819926A93DBD00AE811F /* IndicatorShapeLayer.swift */,
+				7532819826A93DBC00AE811F /* RotateAnimation.swift */,
+				7532819626A93DBC00AE811F /* StrokeAnimation.swift */,
+				7532819726A93DBC00AE811F /* StrokeColorAnimation.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		754BB24F26A7F42200F80DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -130,14 +152,14 @@
 		754BB25A26A7F42200F80DA9 /* KadamaVnext */ = {
 			isa = PBXGroup;
 			children = (
-				754BB2A826A8092500F80DA9 /* Protocols */,
 				754BB29F26A7FF4B00F80DA9 /* AppDelegates */,
-				754BB2A026A7FFD000F80DA9 /* Apis */,
-				754BB29426A7F7F400F80DA9 /* Stores */,
-				754BB29126A7F79200F80DA9 /* Models */,
 				754BB28F26A7F78100F80DA9 /* Views */,
 				754BB29026A7F78700F80DA9 /* ViewModels */,
+				754BB29426A7F7F400F80DA9 /* Stores */,
+				754BB2A026A7FFD000F80DA9 /* Apis */,
+				754BB29126A7F79200F80DA9 /* Models */,
 				754BB28E26A7F77900F80DA9 /* Utilities */,
+				754BB2A826A8092500F80DA9 /* Protocols */,
 				754BB26726A7F42700F80DA9 /* Assets.xcassets */,
 				754BB26926A7F42700F80DA9 /* LaunchScreen.storyboard */,
 				754BB26C26A7F42700F80DA9 /* Info.plist */,
@@ -250,6 +272,7 @@
 		754BB2B426A813B400F80DA9 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				7532819426A93D9300AE811F /* HUD */,
 				754BB2B526A813C300F80DA9 /* CachedImageView.swift */,
 			);
 			path = CustomViews;
@@ -387,6 +410,7 @@
 				754BB26626A7F42200F80DA9 /* KadamaVnext.xcdatamodeld in Sources */,
 				754BB29626A7F80400F80DA9 /* PokemonStore.swift in Sources */,
 				754BB26026A7F42200F80DA9 /* ViewController.swift in Sources */,
+				7532819D26A93DBD00AE811F /* RotateAnimation.swift in Sources */,
 				754BB29C26A7FE5300F80DA9 /* ObserverValue.swift in Sources */,
 				754BB29A26A7FAF900F80DA9 /* Extensions.swift in Sources */,
 				754BB2A426A8001200F80DA9 /* Pokemon.swift in Sources */,
@@ -396,13 +420,17 @@
 				754BB2AC26A80C0700F80DA9 /* BaseNavigationController.swift in Sources */,
 				754BB2AA26A8093900F80DA9 /* Bindable.swift in Sources */,
 				754BB2AE26A80FBC00F80DA9 /* BaseTableViewController.swift in Sources */,
+				7532819B26A93DBD00AE811F /* StrokeAnimation.swift in Sources */,
 				754BB2A626A8021600F80DA9 /* PersistanceStore.swift in Sources */,
 				754BB2B126A80FEA00F80DA9 /* BaseTableViewCell.swift in Sources */,
+				7532819A26A93DBD00AE811F /* IndicatorView.swift in Sources */,
 				754BB29826A7F83600F80DA9 /* Constants.swift in Sources */,
 				754BB29E26A7FED400F80DA9 /* PokemonManager.swift in Sources */,
 				754BB25E26A7F42200F80DA9 /* SceneDelegate.swift in Sources */,
 				754BB29326A7F7BB00F80DA9 /* ServiceManager.swift in Sources */,
+				7532819C26A93DBD00AE811F /* StrokeColorAnimation.swift in Sources */,
 				754BB2B326A8105600F80DA9 /* PokemonCell.swift in Sources */,
+				7532819E26A93DBD00AE811F /* IndicatorShapeLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +600,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = KadamaVnext/KadamaVnext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4DHA92SW6;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,6 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = KadamaVnext/KadamaVnext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M4DHA92SW6;
 				INFOPLIST_FILE = KadamaVnext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

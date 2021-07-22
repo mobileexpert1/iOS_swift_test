@@ -80,30 +80,6 @@ public class PersistanceStore {
         }
     }
     
-    public func updateLabelOfExistingNumber(number: Int64, label: String) {
-        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
-        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
-        fetchedRequest.fetchLimit = 1
-        
-        do {
-            
-            let results = try context.fetch(fetchedRequest)
-            if results.count != 0 {
-                results[0].setValue(label, forKey: "label")
-            }
-        } catch let error {
-            print("Unable to update label in coreData, Error: \(error.localizedDescription)")
-        }
-        
-        do {
-            try context.save()
-        } catch let error {
-            print("Saving CoreData Failed, Error: \(error.localizedDescription)")
-        }
-    }
-    
-
-    
      func savePokemon(pokemon:Pokemon) {
         
         guard let entity = NSEntityDescription.entity(forEntityName: "PokemonDetail", in: context) else { return }
@@ -137,7 +113,7 @@ public class PersistanceStore {
     }
     
     
-    public func removeAllContacts() {
+    public func removeAllPokemons() {
         let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
         do {
             let result = try context.fetch(request)
@@ -156,31 +132,6 @@ public class PersistanceStore {
         }
     }
     
-    
-    
-    public func isNewContactAdded(name: String, phoneNumber: String) -> Bool {
-        var newContact: Bool = false
-        
-        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
-        
-        fetchedRequest.predicate  = NSPredicate(format: "name == %@", name)
-        fetchedRequest.predicate  = NSPredicate(format: "phoneNumber == %@", phoneNumber)
-        fetchedRequest.fetchLimit = 1
-        
-        do {
-            let count = try context.count(for: fetchedRequest)
-            if count == 0 {
-                // Not exists, new contact added
-                newContact = true
-            } else {
-                // exists
-                newContact = false
-            }
-        } catch let error {
-            print("Unable to compare number in coreData, Error: \(error.localizedDescription)")
-        }
-        return newContact
-    }
 }
 
 extension PersistanceStore {
@@ -233,9 +184,9 @@ extension PersistanceStore {
         }
     }
     
-    public func removeOriginalContact(with number:String) {
+    public func removePokemon(with number:String) {
         let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
-        fetchedRequest.predicate = NSPredicate(format: "number == %@", number)
+        fetchedRequest.predicate = NSPredicate(format: "id == %@", number)
         do {
             let result = try context.fetch(fetchedRequest)
             let contacts = result as [NSManagedObject]

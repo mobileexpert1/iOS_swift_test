@@ -11,18 +11,17 @@ class PokemonManager : NSObject{
     
     var pokemons : ObserverValue<[Pokemon]> = ObserverValue([])
     private var pokemonsStorage : ObserverValue<[Pokemon]> = ObserverValue([])
+    var showActivity : ObserverValue<Bool> = ObserverValue(false)
     var canLoadNext = true
     var persistantStore = PersistanceStore()
     // Fetch all pokemon list
     func fetchPokemontsList() {
-        
+        showActivity.value = true
         let localRecords = persistantStore.fetchAllPokemons()
         if ((localRecords.count) > 0) && (pokemonsStorage.value.count < localRecords.count) {
             loadLocalPokemons()
             return;
         }
-        
-        
         if !canLoadNext {
             return
         }
