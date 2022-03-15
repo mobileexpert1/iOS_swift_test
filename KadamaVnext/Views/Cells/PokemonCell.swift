@@ -21,33 +21,6 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    override var item: Pokemon! {
-        didSet {
-            self.loadData()
-        }
-    }
-    
-    func loadData(){
-        guard let viewModel = pokemonViewModel else {return}
-        viewModel.fetchPokemontsDetails(pokemon: item )
-        titleLabel.text = item?.name?.capitalized
-        guard let image = item?.image else {
-            if let id = parsePokemonURL(url: item?.url ?? "") {
-                let url = CONSTANTS.API.IMAGE_BASE_URL + "\(id).png"
-                // By assurance that url will be the same always otherwise this static check will fail
-                thumbnailImageView.loadImageUsingUrlString(url)
-            }
-            return
-        }
-        thumbnailImageView.loadImageUsingUrlString(image)
-        guard let abilities = item?.abilitiesString else {
-            return
-        }
-        abilitiesLabel.text = abilities
-    }
-    
-   
     let thumbnailImageView: CachedImageView = {
         let imageView = CachedImageView()
         imageView.image = UIImage(named: "placeholder")
@@ -79,6 +52,13 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         return label
     }()
     
+    
+    override var item: Pokemon! {
+        didSet {
+            self.loadData()
+        }
+    }
+
     func setupViews(){
         addSubview(thumbnailImageView)
         addSubview(titleLabel)
@@ -87,6 +67,28 @@ class PokemonCell: BaseTableViewCell<Pokemon> {
         titleLabel.anchor(thumbnailImageView.topAnchor, left: thumbnailImageView.rightAnchor,right: self.rightAnchor, topConstant: 10, leftConstant: 10, rightConstant: 10)
         abilitiesLabel.anchor(titleLabel.bottomAnchor,left: titleLabel.leftAnchor,right: self.rightAnchor, topConstant: 10, rightConstant: 10)
     }
+    
+   
+    
+    func loadData(){
+        guard let viewModel = pokemonViewModel else {return}
+        viewModel.fetchPokemontsDetails(pokemon: item )
+        titleLabel.text = item?.name?.capitalized
+        guard let image = item?.image else {
+            if let id = parsePokemonURL(url: item?.url ?? "") {
+                let url = CONSTANTS.API.IMAGE_BASE_URL + "\(id).png"
+                // By assurance that url will be the same always otherwise this static check will fail
+                thumbnailImageView.loadImageUsingUrlString(url)
+            }
+            return
+        }
+        thumbnailImageView.loadImageUsingUrlString(image)
+        guard let abilities = item?.abilitiesString else {
+            return
+        }
+        abilitiesLabel.text = abilities
+    }
+    
     
     func parsePokemonURL(url:String) -> Substring? {
         let splits = url.split(separator: "/")

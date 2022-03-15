@@ -72,7 +72,7 @@ class ViewController: BaseTableViewController<PokemonCell,Pokemon> , Bindable {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    // Sorting pokemonds
+    // Sorting pokemons
     @objc func sortPokemons(){
         viewModel?.togglePokemomSorting()
     }

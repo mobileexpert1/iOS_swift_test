@@ -52,6 +52,7 @@ class LaunchView: UIViewController {
             }
             self.labelPositionisLeft = !(self.labelPositionisLeft)
         }, completion: { _ in
+            // After 1 second delay launch home screen
             sleep(1)
             SceneDelegate.loadHome()
         })

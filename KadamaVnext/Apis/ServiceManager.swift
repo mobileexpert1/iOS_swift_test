@@ -7,20 +7,11 @@
 import SystemConfiguration
 import Foundation
 
-let kBaseMessageKey: String = "message"
-let kBaseStatusKey: String = "status"
-let kBaseResponseKey: String = "response"
-let kBaseDataKey: String = "data"
+
 
 class ServiceManager: NSObject {
     
-    let defaultError: String = "Some error has been occured."
-    
     public static let sharedInstance = ServiceManager()
-    
-    var showProgress: Bool = true
-    var retry: Int = 0
-    var showError = true
     
 }
 

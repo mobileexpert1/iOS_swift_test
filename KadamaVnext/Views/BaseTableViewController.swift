@@ -43,7 +43,7 @@ class BaseTableViewController<T: BaseTableViewCell<U>, U>: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BaseTableViewCell<U>
         cellForRowAt(indexPath: indexPath, cell: cell)
         cell.item = items[indexPath.row]
-        if indexPath.row == (self.items.count) - 50 { // last cell
+        if indexPath.row == (self.items.count) - 50 { // last 50th cell
             self.loadData()
         }
         return cell

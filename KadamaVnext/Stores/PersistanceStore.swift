@@ -47,7 +47,6 @@ public class PersistanceStore {
     }
     
     
-   
     // MARK: - Core Data Saving support
     public func saveContext () {
         let context = persistentContainer.viewContext
@@ -94,26 +93,7 @@ public class PersistanceStore {
         let splits = url.split(separator: "/")
         return splits.last
     }
-    
-    
-    public func removeAllPokemons() {
-        let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
-        do {
-            let result = try context.fetch(request)
-            let contacts = result as [NSManagedObject]
-            
-            for contact in contacts {
-                context.delete(contact)
-            }
-            
-            do { try context.save() }
-            catch let error {
-                print("Unable to save after deleting, Error: \(error.localizedDescription)")
-            }
-        } catch let error {
-            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
-        }
-    }
+
     
 }
 
@@ -164,46 +144,6 @@ extension PersistanceStore {
         } catch let error {
             print("Unable to update label in coreData, Error: \(error.localizedDescription)")
             return true
-        }
-    }
-    
-    // Delete pokemon Not used
-    public func removePokemon(with number:String) {
-        let fetchedRequest: NSFetchRequest<PokemonDetail> = PokemonDetail.fetchRequest()
-        fetchedRequest.predicate = NSPredicate(format: "id == %@", number)
-        do {
-            let result = try context.fetch(fetchedRequest)
-            let contacts = result as [NSManagedObject]
-            
-            for contact in contacts {
-                context.delete(contact)
-            }
-            do { try context.save() }
-            catch let error {
-                print("Unable to save after deleting, Error: \(error.localizedDescription)")
-            }
-        } catch let error {
-            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
-        }
-    }
-    
-    // Delete all pokemonds Not used
-    public func removeAllPokemonDetail() {
-        let request = NSFetchRequest<PokemonDetail>(entityName: "PokemonDetail")
-        do {
-            let result = try context.fetch(request)
-            let contacts = result as [NSManagedObject]
-            
-            for contact in contacts {
-                context.delete(contact)
-            }
-            
-            do { try context.save() }
-            catch let error {
-                print("Unable to save after deleting, Error: \(error.localizedDescription)")
-            }
-        } catch let error {
-            print("Could not delete contacts from CoreData, Error: \(error.localizedDescription)")
         }
     }
     
